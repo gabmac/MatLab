@@ -1,4 +1,5 @@
 function matriz = denavit_hatenberg(t,d,a,A)
+%transforma cada linha da Dh em uma matriz homogena
    
     z1 = cos(t);
     z2 = sin(t);

@@ -1,7 +1,7 @@
-function [J] = dh_table(dh,junctions,prim)%o for prism 1 for rot
-
+function [J,A,K] = dh_table(dh,junctions,prim)%o for prism 1 for rot
+%Jacobiano, matriz que da a junta em relação a origem, linhas do Dh como matrizes(matriz Homogenea)%
     for i = 1:1:junctions
-            J(:,:,i) = denavit_hatenberg(dh(i,1),dh(i,2),dh(i,3),dh(i,4));
+            K(:,:,i) = denavit_hatenberg(dh(i,1),dh(i,2),dh(i,3),dh(i,4));
     end
     
     O = sym([0 0 0]');
@@ -12,7 +12,8 @@ function [J] = dh_table(dh,junctions,prim)%o for prism 1 for rot
     T = eye(4);
     
     for i = 1:1:junctions
-        T = simplify(T*J(:,:,i));
+        T = simplify(T*K(:,:,i));
+        A(:,:,i) = T;
         Z(1,i+1) = T(1,3);
         Z(2,i+1) = T(2,3);
         Z(3,i+1) = T(3,3);
