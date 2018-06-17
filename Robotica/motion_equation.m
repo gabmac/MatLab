@@ -40,8 +40,10 @@ end
 
 Dt = zeros(m,n);
 for i = 1:1:junctions
-    Dt = simplify(Dt+D(:,:,i));
+    Dt = Dt+D(:,:,i);
 end
+
+Dt = simplify(Dt);
 
 
 
