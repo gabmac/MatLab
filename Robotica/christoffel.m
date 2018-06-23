@@ -15,17 +15,16 @@ for i = 1:1:junctions %matriz
     end
 end
 
-
 C  = sym(zeros(junctions, junctions));
 
 
-for i = 1:1:junctions %matriz
+for i = 1:1:junctions
     
-    for j = 1:1:junctions %coluna
+    for j = 1:1:junctions
         
-        for k = 1:1:junctions %linha
+        for k = 1:1:junctions
             
-            C(k,j) = Cs(k, j, i)*d_var(i) + C(k,j);
+            C(i,j) = Cs(i, j, k)*d_var(k) + C(i,j);
         
         end
     end
