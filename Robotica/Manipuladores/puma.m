@@ -33,10 +33,10 @@ I6 = [1 0 0
       0 1 0
       0 0 1];
 % Constantes
-A2 = 2; % [m]
-A3 = 3; % [m]
-D3 = 4; % [m]
-D4 = 5; % [m]
+A2 = 0.3; % [m]
+A3 = 0.2; % [m]
+D3 = 0.2; % [m]
+D4 = 0.1; % [m]
 
 % Variaveis
 t1 = sym('t1'); % [rad]
@@ -98,6 +98,20 @@ g = eval(g);
 T = A;
 
 
+%% Obter pontos tragetória
+
+Q0 = [
+    0.3538
+    1.4064
+    2.3000
+    1.0000
+    1.0000
+    1.0000
+];
+
+[ tragectory_coefficients, tempos_tragetoria ] = get_trajectories( dh, vars, Q0 );
+
+
 %% Simulacao
 
-sim('sim_sys_scara.slx');
+%sim('sim_sys_puma.slx');
