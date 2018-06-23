@@ -2,26 +2,26 @@
 clc; clear; close all;
 
 % Propriedades
-m1 = 10; % [Kg]
-m2 = 10; % [Kg]
-m3 = 10; % [Kg]
-m4 = 10; % [Kg]
+m1 = 7; % [Kg]
+m2 = 6; % [Kg]
+m3 = 5; % [Kg]
+m4 = 3; % [Kg]
 
-I1 = [1 0 0
-      0 1 0
-      0 0 1];
+I1 = [0.12 0 0
+      0 0.12 0
+      0 0 0.12];
 
-I2 = [1 0 0
-      0 1 0
-      0 0 1];
+I2 = [0.05 0 0
+      0 0.05 0
+      0 0 0.05];
  
-I3 = [1 0 0
-      0 1 0
-      0 0 1];
+I3 = [0.01 0 0
+      0 0.01 0
+      0 0 0.01];
  
-I4 = [1 0 0
-      0 1 0
-      0 0 1];
+I4 = [0.01 0 0
+      0 0.01 0
+      0 0 0.01];
   
 % Constantes
 A1 = 2; % [m]
@@ -78,10 +78,7 @@ D = eval(Dt);
 C = eval(C);
 g = eval(g);
 
-save('dinamxic.mat', 'Dt', 'C', 'g', 'vars', 'd_vars');
-
 T = A;
-save('cinematic.mat', 'T', 'vars');
 
 
 %% Simulacao
