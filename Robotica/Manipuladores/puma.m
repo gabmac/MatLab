@@ -109,7 +109,7 @@ Q0 = [
     1.0000
 ];
 
-[ tragectory_coefficients, tempos_tragetoria ] = get_trajectories( dh, vars, Q0 );
+[ tragectory_coefficients, tempos_tragetoria ] = get_trajectories( dh, vars, Q0, juncoes );
 
 
 %% Simulacao

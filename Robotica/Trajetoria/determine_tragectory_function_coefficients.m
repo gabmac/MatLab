@@ -18,6 +18,6 @@ function [ a ] = determine_tragectory_function_coefficients( p0, pf, t0 , tf)
          0   1   2*tf  3*tf^2  4*tf^3   5*tf^4
          0   0   2     6*tf    12*tf^2  20*tf^3
     ];
-    a = inv(A)*B;
+    a = linsolve(A,B);
 end
 

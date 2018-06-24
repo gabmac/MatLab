@@ -90,8 +90,9 @@ Q0 = [
     1.0000
 ];
 
-[ tragectory_coefficients, tempos_tragetoria ] = get_trajectories( dh, vars, Q0 );
+[ tragectory_coefficients, tempos_tragetoria, Q ] = get_trajectories( dh, vars, Q0, juncoes );
 
+Q0 = Q(:,1);
 %% Simulacao
 
 %sim('sim_sys_scara.slx');

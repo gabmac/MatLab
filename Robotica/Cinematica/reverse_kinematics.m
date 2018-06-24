@@ -1,4 +1,4 @@
-function [ Q ] = reverse_kinematics( vars, dh, initial, objective)
+function [ Q ] = reverse_kinematics( vars, dh, initial, objective, tipo_juntas)
 %inverse_cinematic Calculo da cinematica inversa
 %   Calcula a cinematica iversa a partir de uma posição para um manipulador
 
@@ -43,6 +43,17 @@ function [ Q ] = reverse_kinematics( vars, dh, initial, objective)
         Jinv = Jn'*inv(Jn*Jn');
         
         Q = Q + Jinv*Erro;
+        
+        for j=1:n_juntas
+            if tipo_juntas == 1
+                Q(j) = mod(Q(j), 2*pi);
+                
+                if Q(j) > pi
+                    Q(j) = Q(j) - 2*pi;
+                end
+            end
+        end
+        
         if Erro == 0
             break
         end
