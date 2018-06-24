@@ -24,20 +24,20 @@ I4 = [0.01 0 0
       0 0 0.01];
   
 % Constantes
-A1 = 0.375; % [m]
-A2 = 0.275; % [m]
-D1 = 1.5; % [m]
-D4 = 0.1; % [m]
+A1 = 0.450; % [m]
+A2 = 0.350; % [m]
+D1 = 0.472; % [m]
+D4 = 0.03; % [m]
 
 % Variaveis
-D3 = sym('D3'); % [m]
 t1 = sym('t1'); % [rad]
 t2 = sym('t2'); % [rad]
+D3 = sym('D3'); % [m]
 t4 = sym('t4'); % [rad]
 
-v3 = sym('v3'); % [m]
 w1 = sym('w1'); % [rad]
 w2 = sym('w2'); % [rad]
+v3 = sym('v3'); % [m]
 w4 = sym('w4'); % [rad]
 
 juncoes = [1 1 0 1];
@@ -46,7 +46,7 @@ n_juncoes = 4;
 %% Cinematica
 dh = [
     A1  0   D1  t1
-    A2  pi 0   t2
+    A2  pi  0   t2
     0   0   D3  0
     0   0   D4  t4
     ];
@@ -78,19 +78,17 @@ D = eval(Dt);
 C = eval(C);
 g = eval(g);
 
-T = A;
-
 
 %% Obter pontos tragetória
 
 Q0 = [
     0.3538
-    1.4064
-    2.3000
-    1.0000
+    0.1264
+    1.3000
+    0.0000
 ];
 
-[ tragectory_coefficients, tempos_tragetoria, Q ] = get_trajectories( dh, vars, Q0, juncoes );
+[ tragectory_coefficients, tempos_tragetoria, Q ] = get_trajectories( A, vars, Q0, juncoes );
 
 Q0 = Q(:,1);
 %% Simulacao

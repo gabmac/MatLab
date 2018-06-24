@@ -29,6 +29,7 @@ function [  ] = animation( A, vars, Q , T, createGIF, filename)
     view(axes1,[45 45]);
     xlim([-1.5,1.5]);
     ylim([-1.5,1.5]);
+    %zlim([0,0.7]);
 
     t0 = 0;
     for i=1:size(Q,1)
