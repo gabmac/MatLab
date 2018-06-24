@@ -95,4 +95,15 @@ Q0 = [
 Q0 = Q(:,1);
 %% Simulacao
 
-%sim('sim_sys_scara.slx');
+[T, X, Q_ideal, Q_real, Tal] = sim('sim_sys_scara.slx');
+
+%% Animation
+
+close all;
+animation(A, vars, Q_ideal, T, 1, 'scara_ideal_animation');
+
+close all;
+animation(A, vars, Q_real, T, 1, 'scara_real_animation');
+
+figure;
+plot(T, Tal);

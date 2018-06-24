@@ -58,6 +58,5 @@ function [ Q ] = reverse_kinematics( vars, dh, initial, objective, tipo_juntas)
             break
         end
     end
-    Erro
 end
 
