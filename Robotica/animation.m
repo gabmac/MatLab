@@ -2,6 +2,11 @@ function [  ] = animation( A, vars, Q , T, createGIF, filename)
 %UNTITLED5 Summary of this function goes here
 %   Detailed explanation goes here
 
+    if filename(end-3:end) == '.gif'
+    else
+        filename = strcat(filename, '.gif');
+    end
+
     n_juncoes = size(vars, 1);
     XYZ = sym(zeros(3, n_juncoes+1));
     for i=1:n_juncoes
