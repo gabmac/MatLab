@@ -2,13 +2,9 @@
 
 ## TODO
 
-### Ajustar os dados dos motores com os dados adequados
-        - Nao esquecer de mudar todas as matrizes
-
-### Criar uma nova tragetoria, mais plausivel
-        - Provavelmente criar um quadrado
-        - Reduzir as paradas
-        - Definir tamanho e geometria da peca
+### Melhorar a precisao da tragetoria
+        - Atualmente a tragetoria nao eh muito linear
+	- Necessario adicionar mais pontos
 
 ### Orientação dos dispositivos
         - Interessante alterar a orientacao tambem, nao so a posicao
@@ -21,3 +17,5 @@
 ### Adicionar calculo das incertezas no script
         - Nao precisa juntar a malha de controle
 
+### Verificar as matrizes de inercia
+	- Acho que os valores nao estao muito de acordo com o correto, mas deve ser averiguado

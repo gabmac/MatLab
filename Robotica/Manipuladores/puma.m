@@ -68,7 +68,7 @@ dh = [
     0    -pi/2  D1  t1
     A2   0      0   t2
     A3   0      0   t3
-    A4   0      0   t4-pi/2
+    A4   0      0   t4
     A5   0      0   t5
     A6   a6     0   0
     ];
@@ -124,10 +124,10 @@ Q0 = [
 %% Animation
 
 close all;
-animation(A, vars, Q_ideal, T, 0, 'puma_ideal_animation');
+animation(A, vars, Q_ideal, T, 1, 'puma_ideal_animation');
 
 close all;
-animation(A, vars, Q_real, T, 0, 'puma_real_animation');
+animation(A, vars, Q_real, T, 1, 'puma_real_animation');
 
 figure;
 plot(T, Tal);
