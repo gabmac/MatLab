@@ -1,4 +1,4 @@
-function C = christoffel(Dt, junctions, var, d_var)
+function [C,Cs] = christoffel(Dt, junctions, var, d_var)
 %Cijk => i = matriz, j= coluna k = linha
 
 Cs = sym(zeros(junctions, junctions, junctions));

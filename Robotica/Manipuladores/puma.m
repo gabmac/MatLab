@@ -95,7 +95,7 @@ d_vars = [w1; w2; w3; w4; w5; w6];
 % Equacao de movimento
 
 Dt = motion_equation(dh, n_juncoes, m, I, juncoes);
-C = christoffel(Dt, n_juncoes, vars, d_vars);
+[C,Cs] = christoffel(Dt, n_juncoes, vars, d_vars);
 g = potencial_energy(A, m, n_juncoes, vars);
 
 D = eval(Dt);
@@ -114,9 +114,9 @@ Q0 = [
     0
 ];
 
-[ tragectory_coefficients, tempos_tragetoria ] = get_trajectories( A(:,:,1:4), vars(1:4), Q0(1:4), juncoes(1:4) );
+[ tragectory_coefficients, tempos_tragetoria,Q ] = get_trajectories( A(:,:,1:4), vars(1:4), Q0(1:4), juncoes(1:4) );
 
-
+Q0 = [Q(:,1);0;0];
 %% Simulacao
 
 [T, X, Q_ideal, Q_real, Tal] = sim('sim_sys_puma.slx');
@@ -124,10 +124,10 @@ Q0 = [
 %% Animation
 
 close all;
-animation(A, vars, Q_ideal, T, 1, 'puma_ideal_animation');
+animation(A, vars, Q_ideal, T, 0, 'puma_ideal_animation');
 
 close all;
-animation(A, vars, Q_real, T, 1, 'puma_real_animation');
+animation(A, vars, Q_real, T, 0, 'puma_real_animation');
 
 figure;
 plot(T, Tal);

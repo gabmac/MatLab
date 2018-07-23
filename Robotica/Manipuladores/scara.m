@@ -29,6 +29,8 @@ A2 = 0.350; % [m]
 D1 = 0.472; % [m]
 D4 = 0.03; % [m]
 
+% syms A1 A2 D1 D4;
+
 % Variaveis
 t1 = sym('t1'); % [rad]
 t2 = sym('t2'); % [rad]
@@ -71,7 +73,7 @@ d_vars = [w1; w2; v3; w4];
 % Equacao de movimento
 
 Dt = motion_equation(dh, n_juncoes, m, I, juncoes);
-C = christoffel(Dt, n_juncoes, vars, d_vars);
+[C,Cs] = christoffel(Dt, n_juncoes, vars, d_vars);
 g = potencial_energy(A, m, n_juncoes, vars);
 
 D = eval(Dt);
@@ -95,6 +97,9 @@ Q0 = Q(:,1);
 
 [T, X, Q_ideal, Q_real, Tal] = sim('sim_sys_scara.slx');
 
+
+figure;
+plot(T, Tal);
 %% Animation
 
 close all;
@@ -102,6 +107,3 @@ animation(A, vars, Q_ideal, T, 1, 'scara_ideal_animation');
 
 close all;
 animation(A, vars, Q_real, T, 1, 'scara_real_animation');
-
-figure;
-plot(T, Tal);
